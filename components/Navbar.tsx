@@ -1,30 +1,13 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Menu, X, Waves, Mail, Phone, MapPin } from "lucide-react";
 import { NAVIGATION_LINKS } from "@/lib/constants";
 import { Button } from "./Button";
 
 export const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300">
-      {/* Top Header Strip - inspired by Image 2 */}
-      <div className={`hidden md:flex w-full bg-slate-950/80 border-b border-white/5 py-2 px-6 lg:px-12 items-center justify-between text-xs text-white/50 transition-all duration-300 ${scrolled ? "h-0 py-0 overflow-hidden border-b-0 opacity-0" : "h-9"}`}>
+    <header className="fixed top-0 left-0 w-full z-50">
+      {/* Top Header Strip - static and clean */}
+      <div className="hidden md:flex w-full bg-slate-950/80 border-b border-white/5 py-2 px-6 lg:px-12 items-center justify-between text-xs text-white/50 h-9">
         <div className="flex items-center gap-6">
           <a href="tel:+14375527590" className="flex items-center gap-1.5 hover:text-[#06b6d4] transition-colors">
             <Phone className="w-3 h-3 text-[#06b6d4]" />
@@ -44,7 +27,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Main Glass Navbar */}
-      <nav className={`w-full transition-all duration-300 ${scrolled ? "py-3 glass-navbar shadow-lg" : "py-5 bg-transparent"}`}>
+      <nav className="w-full py-4 bg-slate-950/85 backdrop-blur-md border-b border-white/5 shadow-lg relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
           {/* Brand Logo - WaveForge Labs */}
           <a href="#home" className="flex items-center gap-2 group select-none">
@@ -83,39 +66,43 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          {/* Hamburger Icon */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
-          >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
+          {/* Pure CSS Checkbox Mobile Toggle Hack */}
+          <input type="checkbox" id="mobile-menu-toggle" className="hidden peer" />
 
-        {/* Mobile Dropdown Menu */}
-        <div
-          className={`md:hidden absolute top-full left-0 w-full bg-slate-950/95 border-b border-white/5 backdrop-blur-xl transition-all duration-300 overflow-hidden ${isOpen ? "max-h-[400px] border-b opacity-100" : "max-h-0 opacity-0 border-b-0"}`}
-        >
-          <div className="flex flex-col gap-5 p-6 font-mono text-center">
-            {NAVIGATION_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-xs tracking-widest text-white/70 hover:text-white uppercase py-1.5 transition-colors border-b border-white/5"
-              >
-                {link.label}
+          {/* Menu triggers */}
+          <label
+            htmlFor="mobile-menu-toggle"
+            className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-white/80 hover:text-white cursor-pointer relative z-50 peer-checked:[&>.menu-icon]:hidden peer-checked:[&>.close-icon]:block"
+          >
+            <Menu className="w-5 h-5 menu-icon block" />
+            <X className="w-5 h-5 close-icon hidden" />
+          </label>
+
+          {/* Mobile Dropdown Menu - toggled by checkbox state */}
+          <div
+            className="md:hidden absolute top-full left-0 w-full bg-slate-950/95 border-b border-white/5 backdrop-blur-xl transition-all duration-300 overflow-hidden max-h-0 opacity-0 border-b-0 peer-checked:max-h-[400px] peer-checked:opacity-100 peer-checked:border-b"
+          >
+            <div className="flex flex-col gap-5 p-6 font-mono text-center">
+              {NAVIGATION_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-xs tracking-widest text-white/70 hover:text-white uppercase py-1.5 transition-colors border-b border-white/5"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a href="#contact">
+                <Button variant="cyan" size="sm" className="w-full mt-2">
+                  Inquire Now
+                </Button>
               </a>
-            ))}
-            <a href="#contact" onClick={() => setIsOpen(false)}>
-              <Button variant="cyan" size="sm" className="w-full mt-2">
-                Inquire Now
-              </Button>
-            </a>
+            </div>
           </div>
         </div>
       </nav>
     </header>
   );
 };
+
 export default Navbar;

@@ -12,7 +12,13 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+interface PageProps {
+  searchParams: Promise<{ [key: string]: string | undefined }>;
+}
+
+export default async function Home({ searchParams }: PageProps) {
+  const resolvedSearchParams = await searchParams;
+
   return (
     <div className="min-h-screen bg-slate-950 text-white selection:bg-brand-cyan selection:text-slate-950">
       {/* Navigation Header bar */}
@@ -47,7 +53,7 @@ export default function Home() {
         <FAQ />
 
         {/* Project Contact form briefs - Contact */}
-        <Contact />
+        <Contact searchParams={resolvedSearchParams} />
       </main>
 
       {/* Global Footer footer */}

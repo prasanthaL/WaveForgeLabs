@@ -1,6 +1,6 @@
 import React from "react";
+import { Plus, Minus } from "lucide-react";
 import { FAQS } from "@/lib/constants";
-import { FAQItem } from "./FAQItem";
 
 export const FAQ: React.FC = () => {
   return (
@@ -27,10 +27,26 @@ export const FAQ: React.FC = () => {
           </p>
         </div>
 
-        {/* FAQs Accordion List */}
+        {/* FAQs Accordion List using native details/summary */}
         <div className="space-y-4">
           {FAQS.map((faq, idx) => (
-            <FAQItem key={idx} question={faq.question} answer={faq.answer} index={idx} />
+            <details
+              key={idx}
+              className="group rounded-xl border border-white/5 bg-[#0b0f19]/65 transition-all duration-300 open:bg-slate-900/35 open:border-brand-indigo/50 overflow-hidden"
+            >
+              <summary className="w-full flex items-center justify-between text-left p-6 outline-none cursor-pointer list-none [&::-webkit-details-marker]:hidden select-none">
+                <span className="text-sm sm:text-base font-semibold text-white/90 group-open:text-white pr-4">
+                  {faq.question}
+                </span>
+                <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-white/60 transition-all group-open:text-brand-cyan group-open:rotate-90 group-open:border-brand-cyan/20 group-open:bg-brand-cyan/5">
+                  <Plus className="w-4 h-4 block group-open:hidden" />
+                  <Minus className="w-4 h-4 hidden group-open:block" />
+                </div>
+              </summary>
+              <div className="border-t border-white/5 p-6 text-xs sm:text-sm text-white/55 leading-relaxed bg-[#02050c]/30">
+                {faq.answer}
+              </div>
+            </details>
           ))}
         </div>
 
