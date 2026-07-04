@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowRight, Play, Server, Cpu, ShieldCheck } from "lucide-react";
 import { Button } from "./Button";
 import { CLIENT_LOGOS } from "@/lib/constants";
+import { WaveformBackground } from "./WaveformBackground";
 
 export const Hero: React.FC = () => {
   return (
@@ -15,6 +16,9 @@ export const Hero: React.FC = () => {
       {/* Decorative Gradient Overlays / Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-brand-indigo/10 blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/4 w-[450px] h-[450px] rounded-full bg-brand-cyan/5 blur-[130px] pointer-events-none" />
+
+      {/* Animated Waveform Visualizer Background */}
+      <WaveformBackground />
 
       {/* Hero Content */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-12 flex-1 flex flex-col justify-center items-center text-center mt-8 sm:mt-12 md:mt-20">
