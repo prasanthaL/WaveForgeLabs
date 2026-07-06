@@ -16,8 +16,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "WaveForge Labs | Premium Software Engineering & AI Solutions",
-  description: "WaveForge Labs is a premium software engineering and AI solutions studio. We build production-grade web systems, custom mobile apps, cloud architectures, and intelligence networks.",
+  title: "Zentravo Labs | Premium Software Engineering & AI Solutions",
+  description: "Zentravo Labs is a premium software engineering and AI solutions studio. We build production-grade web systems, custom mobile apps, cloud architectures, and intelligence networks.",
   keywords: [
     "Software Engineering",
     "AI integration",
@@ -28,12 +28,12 @@ export const metadata: Metadata = {
     "Custom Web Applications",
     "React Native Mobile Development"
   ],
-  authors: [{ name: "WaveForge Labs Architect Squad" }],
+  authors: [{ name: "Zentravo Labs Architect Squad" }],
   openGraph: {
-    title: "WaveForge Labs | Premium Software Engineering",
+    title: "Zentravo Labs | Premium Software Engineering",
     description: "Forging high-performance digital products, custom web apps, cloud infrastructure, and intelligent AI models.",
-    url: "https://waveforgelabs.com",
-    siteName: "WaveForge Labs",
+    url: "https://zentravolabs.com",
+    siteName: "Zentravo Labs",
     locale: "en_US",
     type: "website",
   },

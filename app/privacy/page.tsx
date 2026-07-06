@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | WaveForge Labs",
-  description: "Learn how WaveForge Labs collects, uses, and safeguards your data and personal information in compliance with global standards.",
+  title: "Privacy Policy | Zentravo Labs",
+  description: "Learn how Zentravo Labs collects, uses, and safeguards your data and personal information in compliance with global standards.",
 };
 
 export default function PrivacyPage() {
@@ -44,7 +44,7 @@ export default function PrivacyPage() {
               Privacy Summary
             </h2>
             <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
-              At WaveForge Labs, your privacy is a priority. We collect only essential information required to offer our services, communicate project status, and optimize website experiences. We never sell your personal data.
+              At Zentravo Labs, your privacy is a priority. We collect only essential information required to offer our services, communicate project status, and optimize website experiences. We never sell your personal data.
             </p>
           </div>
 
@@ -70,7 +70,7 @@ export default function PrivacyPage() {
                 <span className="text-brand-cyan">2.</span> How We Use Your Data
               </h2>
               <p>
-                WaveForge Labs uses collected information for standard operational and improvement purposes:
+                Zentravo Labs uses collected information for standard operational and improvement purposes:
               </p>
               <ul className="list-disc list-inside pl-4 space-y-2 text-white/60">
                 <li>To evaluate project assessments and respond to development requests.</li>

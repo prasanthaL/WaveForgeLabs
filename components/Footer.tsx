@@ -14,10 +14,10 @@ export const Footer: React.FC = () => {
         {/* Left Column: Brand Statement */}
         <div className="md:col-span-4 space-y-6">
           <a href="#home" className="flex flex-col items-center justify-center group select-none w-[130px]">
-            {/* WAVEFORGE text */}
+            {/* ZENTRAVO text */}
             <div className="text-base sm:text-lg font-black tracking-[0.04em] uppercase font-sans leading-none flex items-center gap-0.5">
-              <span className="text-white group-hover:text-slate-200 transition-colors">WAVE</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo">FORGE</span>
+              <span className="text-white group-hover:text-slate-200 transition-colors">ZENT</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo">RAVO</span>
             </div>
             {/* — LABS — subtext */}
             <div className="flex items-center gap-1.5 mt-1.5 w-full justify-center">

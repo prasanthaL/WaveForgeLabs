@@ -1,9 +1,9 @@
-// Global constants and data structure for WaveForge Labs website
+// Global constants and data structure for Zentravo Labs website
 
 export const SITE_METADATA = {
-  title: "WaveForge Labs | Premium Software Engineering & AI Solutions",
+  title: "Zentravo Labs | Premium Software Engineering & AI Solutions",
   description: "Forging high-performance digital products, custom web apps, cloud infrastructure, and intelligent AI models.",
-  url: "https://waveforgelabs.com",
+  url: "https://zentravolabs.com",
 };
 
 export const NAVIGATION_LINKS = [
@@ -200,13 +200,13 @@ export const FAQS = [
 
 export const TESTIMONIALS = [
   {
-    quote: "WaveForge Labs transformed our complex analytics dashboards into a stunning, fast application that helped us close our Series A funding. Their technical execution is flawless.",
+    quote: "Zentravo Labs transformed our complex analytics dashboards into a stunning, fast application that helped us close our Series A funding. Their technical execution is flawless.",
     author: "Jessica R.",
     role: "VP of Product, Finlytic",
     rating: 5,
   },
   {
-    quote: "The NeuralPulse agent WaveForge Labs built for us handles over 10,000 queries a week without breaking a sweat. It feels like magic, and saved us thousands in support costs.",
+    quote: "The NeuralPulse agent Zentravo Labs built for us handles over 10,000 queries a week without breaking a sweat. It feels like magic, and saved us thousands in support costs.",
     author: "Marcus T.",
     role: "Founder, SupportSphere",
     rating: 5,

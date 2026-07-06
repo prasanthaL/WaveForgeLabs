@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | WaveForge Labs",
-  description: "Review the Terms of Service governing client engagements, code delivery, and digital solutions provided by WaveForge Labs.",
+  title: "Terms of Service | Zentravo Labs",
+  description: "Review the Terms of Service governing client engagements, code delivery, and digital solutions provided by Zentravo Labs.",
 };
 
 export default function TermsPage() {
@@ -44,7 +44,7 @@ export default function TermsPage() {
               Service Summary
             </h2>
             <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
-              These terms outline client rights, codebase ownership, payment milestones, and limitations governing custom software projects executed by WaveForge Labs. By initiating a project inquiry or signing a service contract, you agree to these terms.
+              These terms outline client rights, codebase ownership, payment milestones, and limitations governing custom software projects executed by Zentravo Labs. By initiating a project inquiry or signing a service contract, you agree to these terms.
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export default function TermsPage() {
                 <span className="text-brand-cyan">1.</span> Acceptance of Terms
               </h2>
               <p>
-                By accessing this website or contracting WaveForge Labs for engineering projects, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service.
+                By accessing this website or contracting Zentravo Labs for engineering projects, you acknowledge that you have read, understood, and agreed to be bound by these Terms of Service.
               </p>
             </section>
 
@@ -65,7 +65,7 @@ export default function TermsPage() {
                 <span className="text-brand-cyan">2.</span> Scope of Services
               </h2>
               <p>
-                WaveForge Labs provides professional full-stack development, mobile application engineering, cloud infrastructure design, and cognitive AI model configurations. Project specifics, features, timelines, and deliverables are governed by individual client Statement of Work (SOW) documents signed separately.
+                Zentravo Labs provides professional full-stack development, mobile application engineering, cloud infrastructure design, and cognitive AI model configurations. Project specifics, features, timelines, and deliverables are governed by individual client Statement of Work (SOW) documents signed separately.
               </p>
             </section>
 
@@ -78,7 +78,7 @@ export default function TermsPage() {
               </p>
               <ul className="list-disc list-inside pl-4 space-y-2 text-white/60">
                 <li>Upon complete clearance of final invoices, the Client owns 100% of the custom source code, databases, design assets, and deployment keys built specifically for them.</li>
-                <li>WaveForge Labs retains rights to standard foundational templates, open-source libraries, or proprietary utilities created prior to the engagement.</li>
+                <li>Zentravo Labs retains rights to standard foundational templates, open-source libraries, or proprietary utilities created prior to the engagement.</li>
               </ul>
             </section>
 
@@ -105,7 +105,7 @@ export default function TermsPage() {
                 <span className="text-brand-cyan">6.</span> Limitation of Liability
               </h2>
               <p>
-                In no event shall WaveForge Labs be held liable for any secondary, indirect, or consequential damages resulting from platform uptime drops, data leaks on hosting providers, or software dependencies beyond our direct codebase control.
+                In no event shall Zentravo Labs be held liable for any secondary, indirect, or consequential damages resulting from platform uptime drops, data leaks on hosting providers, or software dependencies beyond our direct codebase control.
               </p>
             </section>
 

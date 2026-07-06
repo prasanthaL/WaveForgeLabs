@@ -57,10 +57,10 @@ export const Process: React.FC = () => {
               </span>
             </h2>
             <p className="text-white/70 text-sm sm:text-base leading-relaxed">
-              At <strong className="text-white font-bold">WaveForge Labs</strong>, we are a dynamic and results-driven software development company committed to building high-performance digital solutions for modern business needs.
+              At <strong className="text-white font-bold">Zentravo Labs</strong>, we are a dynamic and results-driven software development company committed to building high-performance digital solutions for modern business needs.
             </p>
             <p className="text-white/50 text-xs sm:text-sm leading-relaxed">
-              With over 7 years of experience, our team delivers full-stack development, mobile apps, cloud integrations, and AI-powered solutions. Whether you&apos;re a startup or an enterprise, WaveForge Labs is your partner in digital transformation.
+              With over 7 years of experience, our team delivers full-stack development, mobile apps, cloud integrations, and AI-powered solutions. Whether you&apos;re a startup or an enterprise, Zentravo Labs is your partner in digital transformation.
             </p>
 
             {/* Key Competencies 2x2 Grid */}
@@ -102,7 +102,7 @@ export const Process: React.FC = () => {
             <div className="relative rounded-2xl overflow-hidden border border-white/5 group-hover:border-white/10 transition-all duration-350 shadow-[0_0_50px_rgba(6,182,212,0.05)] bg-slate-900/30 backdrop-blur-sm p-1.5">
               <img
                 src="/images/about_us_tech.png"
-                alt="WaveForge Systems Architecture"
+                alt="Zentravo Systems Architecture"
                 className="w-full h-auto object-cover rounded-xl grayscale-[15%] group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-500"
               />
               <div className="absolute bottom-4 left-4 right-4 p-3 rounded-lg bg-slate-950/80 border border-white/5 backdrop-blur-md text-[10px] font-mono text-white/50 flex justify-between items-center">
