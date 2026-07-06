@@ -33,7 +33,7 @@ export const HomeContent: React.FC<HomeContentProps> = ({ searchParams }) => {
       {/* Technologies showcase */}
       <Technologies />
 
-      {/* Why Choose WaveForge Labs Section */}
+      {/* Why Choose Zentravo Labs Section */}
       <WhyChoose />
 
       {/* FAQ Accordion lists */}

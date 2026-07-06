@@ -2,16 +2,16 @@
 
 export const SITE_METADATA = {
   title: "Zentravo Labs | Premium Software Engineering & AI Solutions",
-  description: "Forging high-performance digital products, custom web apps, cloud infrastructure, and intelligent AI models.",
+  description: "Engineering high-performance digital products, custom web apps, cloud infrastructure, and intelligent AI models.",
   url: "https://zentravolabs.com",
 };
 
 export const NAVIGATION_LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Technologies", href: "#technologies" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Technologies", href: "/#technologies" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const CLIENT_LOGOS = [

@@ -156,7 +156,7 @@ export const Technologies: React.FC = () => {
             <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
               Technologies We
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo">
-                Forge With
+                Build With
               </span>
             </h2>
           </div>

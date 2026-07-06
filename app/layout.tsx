@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "AI integration",
     "Next.js Developer",
     "Cloud Architecture",
-    "DevOps Forge",
+    "DevOps Engineering",
     "UI/UX Design Studio",
     "Custom Web Applications",
     "React Native Mobile Development"

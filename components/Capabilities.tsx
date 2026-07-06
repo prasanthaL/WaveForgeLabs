@@ -108,7 +108,7 @@ export const Capabilities: React.FC = () => {
             </p>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight leading-tight">
-            We Forge Exceptional
+            We Engineer Exceptional
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo mt-1">
               Digital Capabilities
             </span>

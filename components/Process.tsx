@@ -51,7 +51,7 @@ export const Process: React.FC = () => {
               </p>
             </div>
             <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight leading-tight">
-              Forging High-Performance
+              Engineering High-Performance
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo">
                 Digital Systems
               </span>
@@ -128,7 +128,7 @@ export const Process: React.FC = () => {
             </p>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
-            The Forge Lifecycle
+            The Zentravo Lifecycle
           </h2>
           <p className="text-white/50 text-xs sm:text-sm mt-4 max-w-md mx-auto leading-relaxed">
             Our step-by-step development process is engineered to ensure seamless alignment, premium execution, and zero friction.

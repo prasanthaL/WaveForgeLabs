@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
         >
           <span className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse"></span>
           <p className="text-[#06b6d4] text-[10px] sm:text-xs font-mono font-bold tracking-[0.2em] uppercase">
-            NOW LEADING THE DIGITAL FORGE
+            LEADING THE DIGITAL FRONTIER
           </p>
         </motion.div>
 
@@ -45,9 +45,9 @@ export const Hero: React.FC = () => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
           className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tight leading-[1.05] text-white/95 font-sans font-black uppercase select-none"
         >
-          Forging the Digital
+          Engineering the Digital
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-indigo-300 to-brand-indigo mt-1">
-            Wave of Tomorrow
+            Horizon of Tomorrow
           </span>
         </motion.h1>
 
