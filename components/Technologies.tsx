@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import * as Icons from "lucide-react";
+import { motion } from "framer-motion";
 
 interface TechCategory {
   id: string;
@@ -70,9 +73,14 @@ const IconResolver: React.FC<{ name: string; className?: string }> = ({ name, cl
 
 const TechCategoryCard: React.FC<{ category: TechCategory }> = ({ category }) => {
   return (
-    <div
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+      }}
+      whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeInOut" } }}
       style={{ "--glow-color": category.glowColor } as React.CSSProperties}
-      className="relative rounded-2xl glass-panel p-8 overflow-hidden group glow-border-hover transition-all duration-500 hover:-translate-y-1 hover:bg-slate-900/50 h-full"
+      className="relative rounded-2xl glass-panel p-8 overflow-hidden group glow-border-hover transition-all duration-500 hover:bg-slate-900/50 h-full"
     >
       {/* CSS-driven glow effect on hover */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--glow-color),transparent_70%)] opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none" />
@@ -105,18 +113,20 @@ const TechCategoryCard: React.FC<{ category: TechCategory }> = ({ category }) =>
         <div className="space-y-3 border-t border-white/5 pt-6">
           <div className="flex flex-wrap gap-2">
             {category.techs.map((tech) => (
-              <div
+              <motion.div
                 key={tech}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border border-white/5 text-xs text-white/80 font-mono tracking-wide hover:border-brand-cyan/35 hover:text-white transition-all duration-200"
+                style={{ borderColor: "rgba(255, 255, 255, 0.05)" }}
+                whileHover={{ scale: 1.05, borderColor: "rgba(6, 182, 212, 0.4)" }}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border text-xs text-white/80 font-mono tracking-wide hover:text-white transition-all duration-200 cursor-default"
               >
                 <Icons.Check className="w-3.5 h-3.5 text-brand-cyan shrink-0 animate-pulse" />
                 <span>{tech}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -129,7 +139,13 @@ export const Technologies: React.FC = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+        >
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
@@ -147,16 +163,29 @@ export const Technologies: React.FC = () => {
           <p className="text-white/50 text-xs sm:text-sm max-w-sm leading-relaxed md:text-right">
             We operate at the leading edge of modern engineering. Our technologies are selected for maximum performance, security, and developer velocity.
           </p>
-        </div>
+        </motion.div>
 
         {/* Grid Display */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {TECH_CATEGORIES.map((category) => (
             <div key={category.id}>
               <TechCategoryCard category={category} />
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

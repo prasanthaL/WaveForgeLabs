@@ -7,6 +7,7 @@ export const WaveformBackground: React.FC = () => {
   const barsCount = 90;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

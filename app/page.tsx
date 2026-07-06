@@ -1,15 +1,6 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Capabilities from "@/components/Capabilities";
-import Process from "@/components/Process";
-import Technologies from "@/components/Technologies";
-// import Portfolio from "@/components/Portfolio";
-// import Calculator from "@/components/Calculator";
-// import Testimonials from "@/components/Testimonials";
-import WhyChoose from "@/components/WhyChoose";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
+import HomeContent from "@/components/HomeContent";
 import Footer from "@/components/Footer";
 
 interface PageProps {
@@ -24,37 +15,8 @@ export default async function Home({ searchParams }: PageProps) {
       {/* Navigation Header bar */}
       <Navbar />
 
-      <main>
-        {/* Hero Segment */}
-        <Hero />
-
-        {/* Methodology Lifecycle Timeline - About */}
-        <Process />
-
-        {/* Services & Capabilities grid - Services */}
-        <Capabilities />
-
-        {/* Technologies showcase */}
-        <Technologies />
-
-        {/* Why Choose WaveForge Labs Section */}
-        <WhyChoose />
-
-        {/* Portfolio Products Dashboard (Hidden for now) */}
-        {/* <Portfolio /> */}
-
-        {/* Engagement pricing & project calculator (Hidden for now) */}
-        {/* <Calculator /> */}
-
-        {/* Client Reviews carousel slider (Hidden for now) */}
-        {/* <Testimonials /> */}
-
-        {/* FAQ Accordion lists */}
-        <FAQ />
-
-        {/* Project Contact form briefs - Contact */}
-        <Contact searchParams={resolvedSearchParams} />
-      </main>
+      {/* Main landing page content inside Client Component */}
+      <HomeContent searchParams={resolvedSearchParams} />
 
       {/* Global Footer footer */}
       <Footer />

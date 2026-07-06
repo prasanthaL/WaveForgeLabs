@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import * as Icons from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ValueProposition {
   id: string;
@@ -49,9 +52,14 @@ const IconResolver: React.FC<{ name: string; className?: string }> = ({ name, cl
 
 const ValueCard: React.FC<{ val: ValueProposition }> = ({ val }) => {
   return (
-    <div
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+      }}
+      whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeInOut" } }}
       style={{ "--glow-color": val.glowColor } as React.CSSProperties}
-      className="relative rounded-2xl glass-panel p-8 overflow-hidden group glow-border-hover transition-all duration-500 hover:-translate-y-1 hover:bg-slate-900/50 h-full"
+      className="relative rounded-2xl glass-panel p-8 overflow-hidden group glow-border-hover transition-all duration-500 hover:bg-slate-900/50 h-full"
     >
       {/* CSS-driven glow effect on hover */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--glow-color),transparent_70%)] opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none" />
@@ -80,7 +88,7 @@ const ValueCard: React.FC<{ val: ValueProposition }> = ({ val }) => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -93,7 +101,13 @@ export const WhyChoose: React.FC = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+        >
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/10 border border-brand-indigo/25 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-indigo animate-pulse"></span>
@@ -111,16 +125,29 @@ export const WhyChoose: React.FC = () => {
           <p className="text-white/50 text-xs sm:text-sm max-w-sm leading-relaxed md:text-right">
             We are dedicated to building high-performance systems with clear alignment, absolute transparency, and clean engineering.
           </p>
-        </div>
+        </motion.div>
 
         {/* Values Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {VALUES.map((val) => (
             <div key={val.id}>
               <ValueCard val={val} />
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

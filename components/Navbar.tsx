@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, X, Waves, Mail, Phone, MapPin } from "lucide-react";
+import { Menu, X, Mail, Phone, MapPin } from "lucide-react";
 import { NAVIGATION_LINKS } from "@/lib/constants";
 import { Button } from "./Button";
 
@@ -13,9 +13,9 @@ export const Navbar: React.FC = () => {
             <Phone className="w-3 h-3 text-[#06b6d4]" />
             <span>+1 (437) 552-7590</span>
           </a>
-          <a href="mailto:hello@waveforge.com" className="flex items-center gap-1.5 hover:text-[#06b6d4] transition-colors">
+          <a href="mailto:waveforgelabs@gmail.com" className="flex items-center gap-1.5 hover:text-[#06b6d4] transition-colors">
             <Mail className="w-3 h-3 text-[#06b6d4]" />
-            <span>hello@waveforgelabs.com</span>
+            <span>waveforgelabs@gmail.com</span>
           </a>
         </div>
         <div className="flex items-center gap-4">
@@ -30,17 +30,19 @@ export const Navbar: React.FC = () => {
       <nav className="w-full py-4 bg-slate-950/85 backdrop-blur-md border-b border-white/5 shadow-lg relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
           {/* Brand Logo - WaveForge Labs */}
-          <a href="#home" className="flex items-center gap-2 group select-none">
-            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-indigo to-brand-cyan flex items-center justify-center shadow-[0_0_10px_rgba(6,182,212,0.2)] group-hover:shadow-[0_0_18px_rgba(6,182,212,0.5)] transition-all duration-300">
-              <Waves className="w-5 h-5 text-white animate-pulse-slow" />
+          <a href="#home" className="flex flex-col items-center justify-center group select-none w-[130px]">
+            {/* WAVEFORGE text */}
+            <div className="text-base sm:text-lg font-black tracking-[0.04em] uppercase font-sans leading-none flex items-center gap-0.5">
+              <span className="text-white group-hover:text-slate-200 transition-colors">WAVE</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo">FORGE</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-black tracking-[0.15em] uppercase text-white font-sans leading-none">
-                WaveForge
+            {/* — LABS — subtext */}
+            <div className="flex items-center gap-1.5 mt-1.5 w-full justify-center">
+              <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-brand-cyan/50" />
+              <span className="text-[8px] font-bold tracking-[0.35em] text-brand-cyan uppercase leading-none pl-[0.35em]">
+                LABS
               </span>
-              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-cyan leading-none mt-1">
-                Labs
-              </span>
+              <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-brand-cyan/50" />
             </div>
           </a>
 

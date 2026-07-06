@@ -1,5 +1,5 @@
 import React from "react";
-import { Waves } from "lucide-react";
+import Link from "next/link";
 import { NAVIGATION_LINKS } from "@/lib/constants";
 import { NewsletterForm } from "./NewsletterForm";
 
@@ -13,17 +13,19 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/5 relative z-10">
         {/* Left Column: Brand Statement */}
         <div className="md:col-span-4 space-y-6">
-          <a href="#home" className="flex items-center gap-2 group select-none">
-            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-indigo to-brand-cyan flex items-center justify-center">
-              <Waves className="w-5 h-5 text-white" />
+          <a href="#home" className="flex flex-col items-center justify-center group select-none w-[130px]">
+            {/* WAVEFORGE text */}
+            <div className="text-base sm:text-lg font-black tracking-[0.04em] uppercase font-sans leading-none flex items-center gap-0.5">
+              <span className="text-white group-hover:text-slate-200 transition-colors">WAVE</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo">FORGE</span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-black tracking-[0.15em] uppercase text-white leading-none">
-                WaveForge
+            {/* — LABS — subtext */}
+            <div className="flex items-center gap-1.5 mt-1.5 w-full justify-center">
+              <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-brand-cyan/50" />
+              <span className="text-[8px] font-bold tracking-[0.35em] text-brand-cyan uppercase leading-none pl-[0.35em]">
+                LABS
               </span>
-              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-cyan leading-none mt-1">
-                Labs
-              </span>
+              <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-brand-cyan/50" />
             </div>
           </a>
           <p className="text-white/50 text-xs sm:text-sm leading-relaxed max-w-sm">
@@ -87,8 +89,8 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] font-mono text-white/40 gap-4 relative z-10">
         <p>&copy; {new Date().getFullYear()} WaveForge Labs. All rights reserved.</p>
         <div className="flex items-center gap-6">
-          <a href="#" className="hover:text-white/70 transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white/70 transition-colors">Terms of Service</a>
+          <Link href="/privacy" className="hover:text-white/70 transition-colors">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-white/70 transition-colors">Terms of Service</Link>
         </div>
       </div>
     </footer>

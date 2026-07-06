@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import * as Icons from "lucide-react";
+import { motion } from "framer-motion";
 import { CAPABILITIES } from "@/lib/constants";
 
 const IconResolver = ({ name, className }: { name: string; className?: string }) => {
@@ -19,9 +22,14 @@ const CapabilityCard: React.FC<{
   isFeatured?: boolean;
 }> = ({ title, description, features, iconName, glowColor, index, isFeatured }) => {
   return (
-    <div
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 35 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+      }}
+      whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeInOut" } }}
       style={{ "--glow-color": glowColor } as React.CSSProperties}
-      className="relative rounded-2xl glass-panel overflow-hidden group glow-border-hover transition-all duration-500 hover:-translate-y-1 hover:bg-slate-900/50 h-full"
+      className="relative rounded-2xl glass-panel overflow-hidden group glow-border-hover transition-all duration-500 hover:bg-slate-900/50 h-full"
     >
       {/* CSS-driven glow effect on hover instead of mouse hook */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--glow-color),transparent_70%)] opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none" />
@@ -58,16 +66,21 @@ const CapabilityCard: React.FC<{
         {/* Feature checklist */}
         <ul className={`grid gap-2.5 border-t border-white/5 pt-6 ${isFeatured ? "grid-cols-2" : "grid-cols-1 sm:grid-cols-2"}`}>
           {features.map((feature, i) => (
-            <li key={i} className="flex items-center gap-2 text-xs text-white/60 group-hover:text-white/80 transition-colors">
+            <motion.li
+              key={i}
+              style={{ color: "rgba(255, 255, 255, 0.6)" }}
+              whileHover={{ x: 2, color: "#ffffff" }}
+              className="flex items-center gap-2 text-xs transition-colors"
+            >
               <div className="w-4 h-4 rounded-full bg-brand-cyan/10 flex items-center justify-center shrink-0">
                 <Icons.Check className="w-2.5 h-2.5 text-brand-cyan" />
               </div>
               <span>{feature}</span>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -81,7 +94,13 @@ export const Capabilities: React.FC = () => {
       <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-20"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-indigo/10 border border-brand-indigo/25 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-indigo animate-pulse"></span>
             <p className="text-brand-indigo text-[10px] font-mono font-bold tracking-widest uppercase">
@@ -97,10 +116,23 @@ export const Capabilities: React.FC = () => {
           <p className="text-white/50 text-xs sm:text-sm mt-4 max-w-md mx-auto leading-relaxed">
             Our expert squad combines robust systems architecture with cognitive intelligence, providing end-to-end execution of your product goals.
           </p>
-        </div>
+        </motion.div>
 
         {/* Bento Grid Layout */}
-        <div className="space-y-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.12
+              }
+            }
+          }}
+          className="space-y-6"
+        >
           {/* Row 1: Featured wide card + Image showcase */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             <div className="lg:col-span-7">
@@ -114,7 +146,14 @@ export const Capabilities: React.FC = () => {
                 isFeatured
               />
             </div>
-            <div className="lg:col-span-5">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 35 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+              }}
+              whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeInOut" } }}
+              className="lg:col-span-5"
+            >
               <div className="relative rounded-2xl overflow-hidden border border-white/5 h-full group hover:border-white/10 transition-all duration-500 bg-slate-900/30 backdrop-blur-sm">
                 <img
                   src="/images/services_showcase.png"
@@ -133,7 +172,7 @@ export const Capabilities: React.FC = () => {
                   <p className="text-[11px] text-white/40 leading-relaxed max-w-xs">Running custom cloud pipelines with 99.99% operational SLA compliance across all deployments.</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Row 2: Two equal cards */}
@@ -183,7 +222,7 @@ export const Capabilities: React.FC = () => {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
