@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/5 relative z-10">
         {/* Left Column: Brand Statement */}
-        <div className="md:col-span-4 space-y-6">
+        <div className="md:col-span-6 space-y-6">
           <Link href="/#home" className="flex flex-col items-center justify-center group select-none w-[130px]">
             {/* ZENTRAVO text */}
             <div className="text-base sm:text-lg font-black tracking-[0.04em] uppercase font-sans leading-none flex items-center gap-0.5">
@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
           <p className="text-white/50 text-xs sm:text-sm leading-relaxed max-w-sm">
             We engineer high-end software solutions, intelligent AI models, and optimized cloud architectures to push the boundaries of digital capability.
           </p>
-          {/* Social Icons */}
+          {/* Social Icons (Hidden as per request)
           <div className="flex items-center gap-4 pt-2">
             <a href="https://github.com" aria-label="GitHub" className="w-8 h-8 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-white/55 hover:text-[#06b6d4] hover:bg-white/10 hover:border-white/10 transition-all duration-300">
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -49,10 +49,11 @@ export const Footer: React.FC = () => {
               </svg>
             </a>
           </div>
+          */}
         </div>
 
         {/* Middle Column: Quick Links */}
-        <div className="md:col-span-2 space-y-4">
+        <div className="md:col-span-3 space-y-4">
           <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white/80">Navigation</h4>
           <ul className="space-y-2 text-xs font-mono text-white/45">
             {NAVIGATION_LINKS.map((link) => (
@@ -75,7 +76,7 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Right Column: Newsletter Subscription */}
+        {/* Right Column: Newsletter Subscription (Hidden as per request)
         <div className="md:col-span-3 space-y-4">
           <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white/80">Subscribe to Logs</h4>
           <p className="text-xs text-white/50 leading-relaxed">
@@ -83,6 +84,7 @@ export const Footer: React.FC = () => {
           </p>
           <NewsletterForm />
         </div>
+        */}
       </div>
 
       {/* Bottom Row */}

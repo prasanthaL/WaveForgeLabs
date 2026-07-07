@@ -1,13 +1,39 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Mail, Phone, MapPin, CheckCircle, Send, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "./Button";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 export const Contact: React.FC<{ searchParams?: { [key: string]: string | undefined } }> = ({ searchParams }) => {
-  const submitted = searchParams?.submitted === "true";
-  const contactName = searchParams?.name || "there";
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(searchParams?.submitted === "true");
+  const [contactName, setContactName] = useState(searchParams?.name || "there");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name") as string;
+    setContactName(name || "there");
+
+    try {
+      const result = await sendEmail(formData);
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (err: any) {
+      setErrorMessage(err.message || "An unexpected error occurred.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section id="contact" className="relative w-full py-24 bg-slate-950 px-6 lg:px-12 overflow-hidden border-t border-white/5">
@@ -89,7 +115,7 @@ export const Contact: React.FC<{ searchParams?: { [key: string]: string | undefi
                   </div>
                   <div>
                     <h4 className="text-xs font-mono font-bold text-white/40 uppercase tracking-wider">Email Us</h4>
-                    <p className="text-sm font-semibold text-white mt-1 group-hover:text-brand-cyan transition-colors">waveforgelabs@gmail.com</p>
+                    <p className="text-sm font-semibold text-white mt-1 group-hover:text-brand-cyan transition-colors">zentravolabs@gmail.com</p>
                   </div>
                 </motion.a>
 
@@ -126,7 +152,7 @@ export const Contact: React.FC<{ searchParams?: { [key: string]: string | undefi
                   <div>
                     <h4 className="text-xs font-mono font-bold text-white/40 uppercase tracking-wider">Headquarters</h4>
                     <p className="text-sm font-semibold text-white mt-1">Toronto, Ontario, Canada</p>
-                    <p className="text-xs text-white/50 leading-relaxed mt-1">100 King Street West, Suite 5700, M5X 1C7</p>
+                    <p className="text-xs text-white/50 leading-relaxed mt-1 hidden">100 King Street West, Suite 5700, M5X 1C7</p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -173,15 +199,19 @@ export const Contact: React.FC<{ searchParams?: { [key: string]: string | undefi
                       Thank you, {contactName}. Our engineering team has received your message. We&apos;ll respond within 12 business hours.
                     </p>
                   </div>
-                  <a href="?#contact">
-                    <Button variant="secondary" size="sm">
-                      Submit Another Message
-                    </Button>
-                  </a>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setErrorMessage(null);
+                    }}
+                  >
+                    Submit Another Message
+                  </Button>
                 </div>
               ) : (
-                <form action="?#contact" method="GET" className="space-y-6">
-                  <input type="hidden" name="submitted" value="true" />
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Form header */}
                   <div className="pb-4 border-b border-white/5">
                     <h3 className="text-sm font-bold text-white uppercase tracking-wider font-mono flex items-center gap-2">
@@ -190,6 +220,13 @@ export const Contact: React.FC<{ searchParams?: { [key: string]: string | undefi
                     </h3>
                     <p className="text-[10px] text-white/30 mt-1 font-mono">Fill in all fields for a detailed assessment</p>
                   </div>
+
+                  {errorMessage && (
+                    <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs font-mono flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse shrink-0"></span>
+                      <p>{errorMessage}</p>
+                    </div>
+                  )}
 
                   <div className="space-y-2">
                     {/* Name */}
@@ -208,7 +245,7 @@ export const Contact: React.FC<{ searchParams?: { [key: string]: string | undefi
                   <div className="space-y-2">
                     {/* Email */}
                     <div className="space-y-2">
-                      <label className="text-[10px] font-mono font-bold text-white/40 uppercase tracking-widest block">Company Email</label>
+                      <label className="text-[10px] font-mono font-bold text-white/40 uppercase tracking-widest block">Email</label>
                       <input
                         type="email"
                         name="email"
@@ -221,7 +258,7 @@ export const Contact: React.FC<{ searchParams?: { [key: string]: string | undefi
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono font-bold text-white/40 uppercase tracking-widest block">Project Details</label>
+                    <label className="text-[10px] font-mono font-bold text-white/40 uppercase tracking-widest block">Message</label>
                     <textarea
                       name="message"
                       required
@@ -236,9 +273,10 @@ export const Contact: React.FC<{ searchParams?: { [key: string]: string | undefi
                     type="submit"
                     variant="cyan"
                     className="w-full justify-center gap-2"
+                    disabled={isSubmitting}
                   >
-                    <span>Send Message</span>
-                    <Send className="w-4 h-4" />
+                    <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                    <Send className={`w-4 h-4 ${isSubmitting ? "animate-pulse" : ""}`} />
                   </Button>
                 </form>
               )}
