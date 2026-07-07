@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Zentravo Labs Architect Squad" }],
   openGraph: {
     title: "Zentravo Labs | Premium Software Engineering",
-    description: "Forging high-performance digital products, custom web apps, cloud infrastructure, and intelligent AI models.",
+    description: "Building high-performance digital products, custom web apps, cloud infrastructure, and intelligent AI models.",
     url: "https://zentravolabs.com",
     siteName: "Zentravo Labs",
     locale: "en_US",
