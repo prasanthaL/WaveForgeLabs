@@ -16,7 +16,7 @@ export const Navbar: React.FC = () => {
           </a>
           <a href="mailto:waveforgelabs@gmail.com" className="flex items-center gap-1.5 hover:text-[#06b6d4] transition-colors">
             <Mail className="w-3 h-3 text-[#06b6d4]" />
-            <span>waveforgelabs@gmail.com</span>
+            <span>zentravolabs@gmail.com</span>
           </a>
         </div>
         <div className="flex items-center gap-4">
@@ -34,8 +34,8 @@ export const Navbar: React.FC = () => {
           <Link href="/#home" className="flex flex-col items-center justify-center group select-none w-[130px]">
             {/* ZENTRAVO text */}
             <div className="text-base sm:text-lg font-black tracking-[0.04em] uppercase font-sans leading-none flex items-center gap-0.5">
-              <span className="text-white group-hover:text-slate-200 transition-colors">ZENT</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo">RAVO</span>
+              <span className="text-white group-hover:text-slate-200 transition-colors">ZEN</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-indigo">TRAVO</span>
             </div>
             {/* — LABS — subtext */}
             <div className="flex items-center gap-1.5 mt-1.5 w-full justify-center">
