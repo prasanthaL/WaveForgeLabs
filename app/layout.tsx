@@ -36,6 +36,20 @@ export const metadata: Metadata = {
     siteName: "Zentravo Labs",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/zdikto7r/image/upload/v1783435624/og_image_g4hmuc.webp",
+        width: 1200,
+        height: 630,
+        alt: "Zentravo Labs | Premium Software Engineering & AI Solutions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zentravo Labs | Premium Software Engineering & AI Solutions",
+    description: "Building high-performance digital products, custom web apps, cloud infrastructure, and intelligent AI models.",
+    images: ["https://res.cloudinary.com/zdikto7r/image/upload/v1783435624/og_image_g4hmuc.webp"],
   },
 };
 
