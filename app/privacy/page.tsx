@@ -114,7 +114,7 @@ export default function PrivacyPage() {
                 <li>Right to object or restrict processing of communication logs.</li>
               </ul>
               <p>
-                To request data retrieval or deletion, contact our privacy officer at <a href="mailto:waveforgelabs@gmail.com" className="text-brand-cyan hover:underline">waveforgelabs@gmail.com</a>.
+                To request data retrieval or deletion, contact our privacy officer at <a href="mailto:zentravolabs@gmail.com" className="text-brand-cyan hover:underline">zentravolabs@gmail.com</a>.
               </p>
             </section>
 
